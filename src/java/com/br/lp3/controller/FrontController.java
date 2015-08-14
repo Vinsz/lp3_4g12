@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
  * @author cacique
  */
 public class FrontController extends HttpServlet {
+
     private String command;
     private String username;
     private String password;
@@ -36,15 +37,25 @@ public class FrontController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            if(command.startsWith("login")){
-                
-                if(command.endsWith("login")){
-                    //AÇÕES DE LOGIN
+
+            if (command.startsWith("login")) {
+
+                if (command.endsWith("login")) {
+                    //LOGIN
+
+                    if (LoginManager.authorize(username, password)) {
+
+                        HttpSession session = request.getSession();
+                        session.setAttribute("username", username);
+//                        request.getSession().session.setAttribute("username", username);
+
+                        request.getRequestDispatcher("/Home.jsp").forward(request, response);
+                    } else {
+                        out.println("Hu3Hu3Hu3Br");
+                    }
                 }
             }
-            
-            
+
         }
     }
 
