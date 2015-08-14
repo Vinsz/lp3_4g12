@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
-    Created on : 11/08/2015, 08:31:55
-    Author     : 31400817
+    Created on : Aug 11, 2015, 8:37:44 AM
+    Author     : cacique
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,19 +9,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Aula1-Index</title>
+        <title>LP3 - 04G - Proj 1</title>
     </head>
     <body>
-        <h1>Login</h1>
-        <br>
-        <section> 
+        <section>
+            <h1>LOGIN</h1>
             <form method="POST" action="FrontController">
                 <input type="hidden" name="command" value="login.login"/>
-                <p>Usuário: <input type="text" name="nome" placeholder="usuario"/></p>
-                <p>Senha: <input type="password" name="senha" placeholder="senha"/></p>
-                <p><input type="submit" value="LOGIN"></p>
+                <p>Nome:<br><input type="text" name="username" placeholder="username" required/></p>
+                <p>Senha:<br><input type="password" name="password" placeholder="password" required/></p>
+                <p><input type="submit" value="LOGIN"/></p>
             </form>
         </section>
-        
     </body>
 </html>

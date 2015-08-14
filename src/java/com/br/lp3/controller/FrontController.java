@@ -7,19 +7,21 @@ package com.br.lp3.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author 31400817
+ * @author cacique
  */
 public class FrontController extends HttpServlet {
     private String command;
     private String username;
-    private String senha;
+    private String password;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,8 +38,12 @@ public class FrontController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             if(command.startsWith("login")){
-                //AÇÕES DE LOGIN
+                
+                if(command.endsWith("login")){
+                    //AÇÕES DE LOGIN
+                }
             }
+            
             
         }
     }
@@ -68,14 +74,10 @@ public class FrontController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
         command = request.getParameter("command");
         username = request.getParameter("username");
-        senha = request.getParameter("senha");
-                
+        password = request.getParameter("password");
         processRequest(request, response);
-
-    
     }
 
     /**
